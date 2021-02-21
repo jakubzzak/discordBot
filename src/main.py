@@ -3,12 +3,18 @@ import random
 import requests
 import time
 import os
+import sys
+from dotenv import load_dotenv
+
 # custom imports
+sys.path.append(sys.path[0] + '/main')
+sys.path.append(sys.path[0] + '/database')
+
 from utils import fprint, get_quote
-from database import DinamicDB, StaticDB
 from cli import cli
+from database import DinamicDB, StaticDB
 
-
+load_dotenv()
 client = discord.Client()
 dinamic_db = DinamicDB('staticDB.json')
 static_db = StaticDB('staticDb.json')
@@ -56,7 +62,8 @@ async def on_message(message):
         mentions = static_db.getAttribute('sano_mentions')
         await message.channel.send(mentions[random.randint(0, len(mentions)-1)])
 
-if os.getenv.get('TOKEN') is not None:
+print(os.getenv('TOKEN'))
+if os.getenv('TOKEN') is not None:
     client.run(os.getenv('TOKEN'))
 else:
     fprint("TOKEN not found in .env", "e")

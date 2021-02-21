@@ -1,5 +1,8 @@
-from utils import fprint
+import sys
 import json
+
+# custom imports
+from utils import fprint
 
 
 class Database:

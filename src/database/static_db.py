@@ -1,5 +1,8 @@
-from utils import fprint
 import json
+import sys
+
+# custom imports
+from utils import fprint
 
 
 class StaticDB:
