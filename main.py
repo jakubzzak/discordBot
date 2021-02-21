@@ -2,6 +2,7 @@ import discord
 import random
 import requests
 import time
+import os
 # custom imports
 from utils import fprint, get_quote
 from database import DinamicDB, StaticDB
@@ -55,5 +56,7 @@ async def on_message(message):
         mentions = static_db.getAttribute('sano_mentions')
         await message.channel.send(mentions[random.randint(0, len(mentions)-1)])
 
-
-client.run('ODEyODA3NTcyNzA3ODY4NzIy.YDGICg.bw0ApHtxn_FoFpE0It6YFX7C8Nk')
+if os.getenv.get('TOKEN') is not None:
+    client.run(os.getenv('TOKEN'))
+else:
+    fprint("TOKEN not found in .env", "e")
