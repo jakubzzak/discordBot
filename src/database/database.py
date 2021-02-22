@@ -8,9 +8,10 @@ from utils import fprint
 class Database:
 
     def __init__(self, fileName):
-        self.fileName = fileName
+        self.fileName = sys.path[-1] + '/' + fileName
 
     def getAttribute(self, attr):
+        # fprint('sys.path: ' + str(sys.path), 'd')
         with open(self.fileName) as file:
             data = json.load(file)
             # fprint(data, 'd')

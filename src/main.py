@@ -7,8 +7,8 @@ import sys
 from dotenv import load_dotenv
 
 # custom imports
-sys.path.append(sys.path[0] + '/main')
-sys.path.append(sys.path[0] + '/database')
+sys.path.append(sys.path[0] + '/main') # sys.path[-2] = main folder
+sys.path.append(sys.path[0] + '/database') # sys.path[-1] = database folder
 
 from utils import fprint, get_quote
 from cli import cli
@@ -62,7 +62,6 @@ async def on_message(message):
         mentions = static_db.getAttribute('sano_mentions')
         await message.channel.send(mentions[random.randint(0, len(mentions)-1)])
 
-print(os.getenv('TOKEN'))
 if os.getenv('TOKEN') is not None:
     client.run(os.getenv('TOKEN'))
 else:
