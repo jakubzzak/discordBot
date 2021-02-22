@@ -1,6 +1,8 @@
+from datetime import datetime
+
 def fprint(message, type = ''):
     if type == 'i':
-        print('INFO# ' + str(message))
+        print('[' + datetime.now().strftime("%H:%M:%S") + '] INFO# ' + str(message))
     elif type == 'd':
        print('DEBUG# ' + str(message))
     elif type == 'e':
