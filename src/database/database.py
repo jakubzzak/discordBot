@@ -8,6 +8,7 @@ from utils import fprint
 class Database:
 
     def __init__(self, fileName):
+        # fprint('setting db.json path to: ' + sys.path[-1] + '/' + fileName, 'i')
         self.fileName = sys.path[-1] + '/' + fileName
 
     def getAttribute(self, attr):

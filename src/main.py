@@ -17,7 +17,7 @@ from database import DinamicDB, StaticDB
 load_dotenv()
 client = discord.Client()
 dinamic_db = DinamicDB('staticDB.json')
-static_db = StaticDB('staticDb.json')
+static_db = StaticDB('staticDB.json')
 
 
 @client.event
